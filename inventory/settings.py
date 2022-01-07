@@ -26,7 +26,11 @@ SECRET_KEY = "django-insecure-46!x6l_my^yy*wh7nk)spw!ku_8rp8_@!j1=so!*kw%xky4_gh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "games-inventory.herokuapp.com"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "games-inventory.herokuapp.com",
+    "games-inventory.github.io",
+]
 
 
 # Application definition
@@ -39,11 +43,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "gamesinventory",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",

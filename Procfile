@@ -1,1 +1,2 @@
-web: gunicorn inventory.wsgi
+web: gunicorn myproject.wsgi
+release: python manage.py migrate
