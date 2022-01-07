@@ -51,8 +51,13 @@ def create_game(request):
     game_id = gm.create_game(title, players, year, description)
     return success_response({"id": game_id})
 
+@require_http_methods(["GET"])
 def autocomplete(request):
-    return success_response({})
+    title = request.GET.get('title', '')
+    res = gm.bgg_list(title) if title else []
+    return success_response(res)
 
-def autocomplete_detail(request):
-    return success_response({})
+@require_http_methods(["GET"])
+def autocomplete_detail(request, game_id):
+    res = gm.bgg_detail(game_id)
+    return success_response(res)

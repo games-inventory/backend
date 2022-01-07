@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:game_id>/update/', views.update_game, name='update_game'),
     path('<int:game_id>/delete/', views.delete_game, name='delete_game'),
     path('autocomplete/', views.autocomplete, name='autocomplete'),
-    path('autocomplete/full/', views.autocomplete_detail, name='autocomplete_detail'),
+    path('autocomplete/full/<int:game_id>/', views.autocomplete_detail, name='autocomplete_detail'),
 ]
