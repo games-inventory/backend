@@ -6,11 +6,11 @@ from gamesinventory.models import Game
 def get_page(title, players, year, limit):
     res = Game.objects.all()
     if title:
-        res.filter(title__contains=title)
+        res = res.filter(title__contains=title)
     if players:
-        res.filter(players__contains=players)
+        res = res.filter(players__contains=players)
     if year:
-        res.filter(year__exact=year)
+        res = res.filter(year__exact=year)
     pg = Paginator(res, limit)
     return pg
 
