@@ -27,11 +27,14 @@ SECRET_KEY = "django-insecure-46!x6l_my^yy*wh7nk)spw!ku_8rp8_@!j1=so!*kw%xky4_gh
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
     "games-inventory.herokuapp.com",
-    "games-inventory.github.io",
+    "127.0.0.1",
+    "localhost",
+    "127.0.0.1:8080",
+    "http://127.0.0.1:8080" "games-inventory.github.io",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "gamesinventory",
     "corsheaders",
 ]
@@ -55,6 +59,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "inventory.urls"
